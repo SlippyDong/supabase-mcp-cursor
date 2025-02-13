@@ -1,21 +1,19 @@
 {
-  "name": "supabase-server",
+  "name": "supabase-mcp-server-cursor",
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
-    "start": "node build/index.js"
+    "build": "tsc && node -e \"require('fs').copyFileSync('start-server.js', 'build/start-server.js')\" && node -e \"require('fs').chmodSync('build/index.js', '755')\" && node -e \"require('fs').chmodSync('build/start-server.js', '755')\"",
+    "start": "node build/start-server.js"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.6.1",
+    "@modelcontextprotocol/sdk": "^1.4.1",
     "@supabase/supabase-js": "^2.39.3",
-    "cors": "^2.8.5",
-    "express": "^4.21.2",
-    "typescript": "^5.3.3"
+    "dotenv": "^16.4.7",
+    "typescript": "^5.3.3",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
     "@types/node": "^20.11.5"
   }
 }
